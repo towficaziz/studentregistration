@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Sign Up !!</h1>
+                    <h6>Register Yourself !!</h6>
+                </div>
+                <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+                    <div class="mb-3">
+                        <label for="exampleInputName" class="form-label">Full Name</label>
+                        <input formControlName="fullName" type="text" class="form-control" id="exampleInputName">
+                        <small *ngIf="signupForm.get('fullName')?.invalid && signupForm.get('fullName')?.touched" class="text-danger">Required!</small>
+                        <!-- <small *ngIf="signupForm.controls['fullName'].dirty && signupForm.hasError('required','fullName')" class="text-danger">Required!</small> -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputMobile" class="form-label">Mobile Number</label>
+                        <input formControlName="mobile" type="number" class="form-control" id="exampleInputMobile">
+                        <small *ngIf="signupForm.get('mobile')?.invalid && signupForm.get('mobile')?.touched" class="text-danger">Required!</small>
+
+                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <small *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="text-danger">Required!</small>
+
+                      <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input formControlName="password"  [type]="inputType"  class="form-control" id="exampleInputPassword1">
+                      <input (change)="showPassword($event)"
+                      type="checkbox" class="form-check-input"> <h6>Show Password</h6>
+                      <small *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="text-danger">Required!</small>
+
+                    </div>
+                    
+                    <button type="submit"  class="btn btn-primary" [disabled]="signupForm.invalid">Sign Up</button>
+                  </form>
+                  <a routerLink="/login" > Already registered? Click to Login!!</a> 
+            </div>
+        </div>
+    </div>
+</div>
+

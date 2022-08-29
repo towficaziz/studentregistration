@@ -1,0 +1,106 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+  <div class="container">
+    <a class="navbar-brand text-white" href="#">S. Register</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       
+        <li class="nav-item">
+          <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Add Student
+          </button>
+        </li>
+      </ul>
+        
+      <app-search (searchChanged)="searchTextEntered($event)"></app-search>
+     
+    </div>
+    
+  </div>
+  <button routerLink="/login" class="btn btn-danger mx-2"> Logout ! </button>
+</nav>
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">class</th>
+            <th scope="col">Email</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Action</th>
+            <th scope="col">
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container  *ngFor="let student of studentList" >
+            <tr *ngIf="searchText === '' || student.name.toLowerCase().includes(searchText)">
+                <th scope="row">{{student.id}}</th>
+                <td>{{student.name | titlecase}}</td>
+                <td>{{student.class | titlecase}}</td>
+                <td>{{student.email}}</td>
+                <td>{{student.mobile}}</td>
+                <td>
+                    <input type="button"  (click)="editStudent(student)" value="Edit" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success me-2"/>
+                    <input type="button" (click)="deleteStudent(student)" value="Delete" class="btn btn-danger " />
+                </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+</div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">S. Registration Form</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="studentForm" > 
+             <div class="mb-3">
+               <label for="tname" class="form-label">Name</label>
+              
+               <input type="text" formControlName="name" class="form-control"  id="tname" placeholder="Enter your name" >
+               <small *ngIf="studentForm.get('name')?.invalid && studentForm.get('name')?.touched" class="text-danger">Name is Required!</small>
+
+             </div>
+             <div class="mb-3">
+                 <label for="tclass" class="form-label">Class</label>
+                 <input type="text" class="form-control" formControlName="class" id="tclass" placeholder="Enter your class">
+                 <small *ngIf="studentForm.get('class')?.invalid && studentForm.get('class')?.touched" class="text-danger">Class is Required!</small>
+               </div>
+               <div class="mb-3">
+                 <label for="temail" class="form-label">Email address</label>
+                 <div class="input-group">
+                     <span class="input-group-text" id="temail">@</span>
+                     <input type="email" class="form-control" formControlName="email" id="temail" placeholder="Enter your email">
+                     <small *ngIf="studentForm.get('email')?.invalid && studentForm.get('email')?.touched" class="text-danger">Email is Required!</small>
+                 </div>
+               </div>
+               <div class="mb-3">
+                 <label for="tcontact" class="form-label" for="tphone">Contact</label>
+                 <div class="input-group">
+                     <span class="input-group-text" id="tphone">+49</span>
+                     <input type="text" class="form-control" formControlName="mobile" id="tphone" placeholder="Enter your Phone">
+                     <small *ngIf="studentForm.get('mobile')?.hasError('pattern') && studentForm.get('mobile')?.touched" class="text-danger">Phone is Required!</small>
+                 </div>    
+               </div>
+           </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" *ngIf="btnSaveShow" class="btn btn-primary" (click)="addStudent()" data-bs-dismiss="modal" [disabled]="studentForm.invalid">Register</button>
+          <button type="submit" *ngIf="btnUpdateShow" class="btn btn-primary" (click)="updateStudent()" data-bs-dismiss="modal">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

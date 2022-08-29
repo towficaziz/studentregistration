@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Login</h1>
+                    <h6>Please enter email & password !!</h6>
+                </div>
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                      <small *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger">E-mail is Required!</small>
+
+                    </div>
+                    <div class="mb-3 form-group">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <!-- <span class="eyeicon" (click)="viewpass()"><i [ngClass]="visible?'fa-solid fa-eye':'fa-solid fa-eye-slash'"></i></span>   [type]="changetype?'password':'text'" -->
+                      <input formControlName="password" id="exampleInputPassword1" [type]="inputType" class="form-control" placeholder="Enter password">
+                      <input  (change)="showPassword($event)"
+                      type="checkbox" class="form-check-input"> <h6>Show Password</h6>
+                      <small *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">Password is Required!</small>
+                      
+                      <a routerLink="/reset"> Forget Password?</a>  
+                      <!-- <span class="eyeicon" (click)="viewpass()"><i [ngClass]="visible?'fa-solid fa-eye':'fa-solid fa-eye-slash'"></i></span> -->
+                    
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary"  [disabled]="loginForm.invalid">Login</button>
+                  </form>
+                <a routerLink="/signup"> New user? Click to signup!!</a> 
+            </div>
+
+         </div>
+    </div>
+</div>

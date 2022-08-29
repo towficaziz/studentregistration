@@ -1,0 +1,121 @@
+{
+  "posts": [
+    {
+      "id": 4,
+      "name": "md towfic Aziz",
+      "class": "101",
+      "email": "rereer",
+      "mobile": ""
+    },
+    {
+      "id": 5,
+      "name": "This is towfic",
+      "class": "13",
+      "email": "",
+      "mobile": ""
+    },
+    {
+      "id": 6,
+      "name": "ggggggggggg",
+      "class": null,
+      "email": null,
+      "mobile": null
+    },
+    {
+      "id": 7,
+      "name": "a",
+      "class": "a",
+      "email": "a",
+      "mobile": "a"
+    },
+    {
+      "id": 8,
+      "name": "a",
+      "class": "a",
+      "email": "dddd",
+      "mobile": ""
+    },
+    {
+      "id": 9,
+      "name": "a",
+      "class": "a",
+      "email": "dd",
+      "mobile": ""
+    },
+    {
+      "id": 10,
+      "name": "d",
+      "class": "d",
+      "email": "towfic@gmil.com",
+      "mobile": "1234789087"
+    },
+    {
+      "id": 11,
+      "name": "d",
+      "class": "d",
+      "email": "towfi",
+      "mobile": "0159012975"
+    },
+    {
+      "id": 12,
+      "name": "Ahad",
+      "class": "10",
+      "email": "jamal@gmail",
+      "mobile": "01635173091"
+    },
+    {
+      "id": 13,
+      "name": "Daud",
+      "class": "11",
+      "email": "daud@gmail",
+      "mobile": "01635173091"
+    },
+    {
+      "id": 14,
+      "name": "Hi",
+      "class": "111",
+      "email": "tapolly01@gmail.com",
+      "mobile": "09823423454213"
+    }
+  ],
+  "signupUsers": [
+    {
+      "fullName": "aziz",
+      "email": "towfic@gmail.com",
+      "mobile": 12345677,
+      "password": "12345678890",
+      "id": 1
+    },
+    {
+      "fullName": "df",
+      "email": "234324",
+      "mobile": 43243124,
+      "password": "2342343",
+      "id": 2
+    },
+    {
+      "fullName": "",
+      "email": "3432",
+      "mobile": 34324,
+      "password": "2343",
+      "id": 3
+    },
+    {
+      "fullName": "Hash ",
+      "email": "towfic@gmail.com",
+      "mobile": 17273283777,
+      "password": "3432534545456456445",
+      "id": 4
+    },
+    {
+      "fullName": "Amra",
+      "email": "amra@gmail.com",
+      "mobile": 19834845344,
+      "password": "12347890766",
+      "id": 5
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
